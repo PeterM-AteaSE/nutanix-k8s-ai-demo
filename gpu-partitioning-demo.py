@@ -38,7 +38,7 @@ class GPUPartitioningDemo:
                 'name': 'llama3.1:8b',
                 'size': '8B parameters',
                 'mig_profile': '3g.20gb or Full A30',
-                'gpu_memory': '20-24GB',
+                'gpu_memory': '24GB',
                 'use_case': 'Production, Customer APIs',
                 'pods_per_gpu': 1,
                 'namespace': 'ai-workloads'
