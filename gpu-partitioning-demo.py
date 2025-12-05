@@ -104,7 +104,7 @@ Be specific and provide kubectl commands."""
                 ['ollama', 'run', model_name, prompt],
                 capture_output=True,
                 text=True,
-                timeout=60
+                timeout=120
             )
             
             end_time = time.time()

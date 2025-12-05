@@ -101,11 +101,11 @@
             </div>
             <div class="stat-card">
                 <div class="stat-label">Max Throughput</div>
-                <div class="stat-value">27 <span style="font-size:0.5em">tok/s</span></div>
+                <div class="stat-value">26 <span style="font-size:0.5em">tok/s</span></div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">Benchmark Time</div>
-                <div class="stat-value">15:07</div>
+                <div class="stat-value">15:35</div>
             </div>
         </div>
         
@@ -127,7 +127,7 @@
         </div>
         
         <div class="footer">
-            <p><strong>Generated:</strong> 2025-12-05 15:07:29</p>
+            <p><strong>Generated:</strong> 2025-12-05 15:35:57</p>
             <p>Demo Repository: github.com/PeterM-AteaSE/nutanix-k8s-ai-demo</p>
         </div>
     </div>
@@ -145,7 +145,7 @@
                 labels: ["llama3.2:1b\n(1B parameters)", "llama3.2:3b\n(3B parameters)"],
                 datasets: [{
                     label: 'Tokens per Second',
-                    data: [26.60690767228796, 17.96480524154967],
+                    data: [25.73187646739949, 18.121601021955843],
                     backgroundColor: ["#10b981", "#f59e0b"],
                     borderRadius: 8,
                     borderWidth: 0
@@ -184,7 +184,7 @@
                 labels: ["llama3.2:1b\n(1B parameters)", "llama3.2:3b\n(3B parameters)"],
                 datasets: [{
                     label: 'Response Time',
-                    data: [17.70216989517212, 22.488415241241455],
+                    data: [21.141093254089355, 25.99108099937439],
                     backgroundColor: ["#10b981", "#f59e0b"],
                     borderRadius: 8,
                     borderWidth: 0
@@ -225,7 +225,7 @@
                     label: 'Model Performance',
                     data: memoryValues.map((mem, i) => ({
                         x: mem,
-                        y: [26.60690767228796, 17.96480524154967][i]
+                        y: [25.73187646739949, 18.121601021955843][i]
                     })),
                     backgroundColor: ["#10b981", "#f59e0b"],
                     borderColor: ["#10b981", "#f59e0b"],
