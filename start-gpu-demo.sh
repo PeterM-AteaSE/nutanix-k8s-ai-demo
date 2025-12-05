@@ -89,8 +89,9 @@ echo "     - Model performance comparison"
 echo "     - GPU partitioning visualization"
 echo "     - Kubernetes deployment guide"
 echo ""
-echo "  2. 📊 Quick Benchmark"
-echo "     - Fast performance comparison of all models"
+echo "  2. 📊 Quick Benchmark with Graphs"
+echo "     - Fast performance comparison"
+echo "     - Generate interactive HTML charts"
 echo ""
 echo "  3. 📚 View Documentation"
 echo "     - GPU Partitioning Guide"
@@ -110,25 +111,12 @@ case $CHOICE in
         ;;
     2)
         echo ""
-        echo "📊 Running quick benchmark..."
+        echo "📊 Running benchmark and generating graphs..."
         echo ""
-        
-        for MODEL in "llama3.2:1b" "llama3.2:3b"; do
-            if ollama list | grep -q "$MODEL"; then
-                echo "Testing $MODEL..."
-                START=$(date +%s)
-                ollama run "$MODEL" "What is Kubernetes? Answer in one sentence." > /tmp/bench_$$.txt 2>&1
-                END=$(date +%s)
-                DURATION=$((END - START))
-                TOKENS=$(wc -w < /tmp/bench_$$.txt)
-                SPEED=$(echo "scale=1; $TOKENS / $DURATION" | bc)
-                echo "  ⏱️  Duration: ${DURATION}s"
-                echo "  📝 Tokens: $TOKENS"
-                echo "  ⚡ Speed: ${SPEED} tokens/sec"
-                echo ""
-            fi
-        done
-        rm -f /tmp/bench_$$.txt
+        python3 gpu-partitioning-demo.py << 'EOFPYTHON'
+3
+8
+EOFPYTHON
         ;;
     3)
         echo ""
