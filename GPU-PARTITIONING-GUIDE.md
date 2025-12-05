@@ -153,14 +153,34 @@ Creates three namespaces for workload isolation:
 Interactive Python script that demonstrates:
 1. **A30 MIG topology** - Visual representation of partitioning
 2. **Model performance comparison** - Real benchmarks across model sizes
-3. **Resource allocation scenarios** - Different deployment strategies
-4. **Deployment walkthrough** - Step-by-step setup guide
-5. **Monitoring commands** - How to track GPU utilization
+3. **Interactive performance graphs** - Auto-generated HTML charts with Chart.js
+4. **Resource allocation scenarios** - Different deployment strategies
+5. **Deployment walkthrough** - Step-by-step setup guide
+6. **Monitoring commands** - How to track GPU utilization
+
+**Graph Features:**
+- Throughput comparison (tokens/second)
+- Response time analysis
+- GPU memory vs performance scatter plot
+- Stats dashboard with key metrics
+- Professional gradient design
+- Auto-opens in default browser
+- Saved as `performance-report.html`
 
 **Usage:**
 ```bash
 ./gpu-partitioning-demo.py
 ```
+
+**Menu Options:**
+1. Show A30 MIG topology and partitioning strategy
+2. Run model performance comparison (1B vs 3B vs 8B)
+3. **Generate interactive performance graphs (HTML)** ✨
+4. Show Kubernetes resource allocation scenarios
+5. Display deployment walkthrough
+6. Show monitoring commands
+7. Run all demos
+8. Exit
 
 ## Quick Start
 

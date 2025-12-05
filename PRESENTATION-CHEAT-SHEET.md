@@ -71,11 +71,19 @@ llama3.2:3b  → Balanced           → Staging/QA
 llama3.1:8b  → High quality       → Production APIs
 ```
 
-### Live Benchmark
+### Live Benchmark with Graphs
 ```bash
-# From demo menu, select option 2
-# Or run: ./start-gpu-demo.sh → Option 2
+# From demo menu, select option 2 or 3
+./start-gpu-demo.sh → Option 2 (generates graphs automatically)
+# Or interactive:
+./gpu-partitioning-demo.py → Option 3
 ```
+
+**What Happens:**
+1. Runs benchmarks on all available models
+2. Generates beautiful HTML report with charts
+3. Auto-opens in browser
+4. Shows throughput, response time, memory efficiency
 
 **Expected Results**:
 - 1B model: 100-150 tokens/sec (fits in 6GB)

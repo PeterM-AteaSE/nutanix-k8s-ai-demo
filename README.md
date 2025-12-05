@@ -1,28 +1,42 @@
 # Nutanix & Kubernetes AI Assistant Demo
 
 ## Overview
-Interactive AI assistant for infrastructure teams working with Nutanix clusters and Kubernetes. Perfect for demos and training sessions with colleagues.
+Comprehensive demo suite for NVIDIA A30 GPU partitioning and AI workload management on Nutanix Kubernetes. Includes interactive performance analysis, Kubernetes manifests, and presentation materials.
 
 ## What It Does
-- Answers questions about Nutanix infrastructure management
-- Provides Kubernetes troubleshooting guidance
-- Explains best practices for running K8s on Nutanix
-- Interactive demo scenarios for presentations
-- Shows current K8s cluster context
+- **GPU Partitioning Demo**: Interactive showcase of NVIDIA MIG technology
+- **Performance Benchmarks**: Compare 1B, 3B, and 8B parameter models
+- **Interactive Graphs**: Beautiful HTML charts with performance metrics
+- **Kubernetes Manifests**: Production-ready deployments with MIG profiles
+- **AI Assistant**: Nutanix infrastructure and Kubernetes troubleshooting
+- **Complete Documentation**: Deployment guides and presentation materials
 
 ## Features
-✅ Runs 100% locally (no internet needed for LLM)
-✅ Nutanix-focused knowledge
-✅ Kubernetes expertise
-✅ Pre-built demo scenarios
-✅ Custom query support
-✅ Shows your current K8s context
+✅ **GPU Partitioning Demo**: NVIDIA A30 MIG visualization and benchmarks
+✅ **Interactive Performance Graphs**: Auto-generated HTML charts
+✅ **Production K8s Manifests**: Multi-tenant GPU deployments
+✅ **Runs 100% locally**: No internet needed for LLM inference
+✅ **Multiple Models**: 1B, 3B models included (8B ready)
+✅ **ROCm GPU Acceleration**: AMD Radeon 890M support
+✅ **Complete Documentation**: Guides, cheat sheets, and walkthroughs
 
 ## Quick Start
 
-### 1. Start the Demo
+### GPU Partitioning Demo (Recommended)
 ```bash
-cd ~/nutanix-k8s-ai-demo
+cd ~/projects/nutanix-k8s-ai-demo
+./start-gpu-demo.sh
+```
+
+**Demo Options:**
+1. 🎯 Interactive Demo - Full walkthrough with explanations
+2. 📊 Quick Benchmark with Graphs - Generate performance charts
+3. 📚 View Documentation - Browse guides in terminal
+4. 🔧 Deploy to Kubernetes - Apply manifests to cluster
+
+### AI Assistant (Legacy)
+```bash
+cd ~/projects/nutanix-k8s-ai-demo
 ./nutanix-ai-assistant.py
 ```
 
