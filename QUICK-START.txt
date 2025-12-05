@@ -1,0 +1,100 @@
+╔══════════════════════════════════════════════════════════════╗
+║  NUTANIX & KUBERNETES AI ASSISTANT - QUICK START            ║
+╚══════════════════════════════════════════════════════════════╝
+
+✓ SETUP COMPLETE!
+  - Ollama: Installed & Running
+  - Model: llama3.2:3b (2GB, downloaded)
+  - Demo: Ready to present
+  - Location: ~/nutanix-k8s-ai-demo/
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 RUN THE DEMO:
+
+    cd ~/nutanix-k8s-ai-demo
+    ./start-demo.sh
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 WHAT YOU HAVE:
+
+1. start-demo.sh       → Launch the interactive demo
+2. nutanix-ai-assistant.py → Main demo application  
+3. README.md           → Full documentation
+4. DEMO-GUIDE.md       → Presentation cheat sheet
+5. QUICK-START.txt     → This file
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 DEMO SCENARIOS:
+
+[1] Kubernetes Troubleshooting (CrashLoopBackOff)
+[2] Nutanix Storage Best Practices
+[3] Scaling Strategy (HPA vs VPA)
+[4] Nutanix Cluster Optimization
+[5] Disaster Recovery Planning
+[6] Network Policies Creation
+[7] Custom Questions (ask anything!)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 KEY SELLING POINTS FOR COLLEAGUES:
+
+✓ Runs 100% locally (no cloud, no API calls)
+✓ Fast responses (seconds, not minutes)
+✓ Completely free (no usage charges)
+✓ Works offline (no internet needed)
+✓ Private (data never leaves your laptop)
+✓ Nutanix & K8s focused
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔧 COMMANDS TO KNOW:
+
+# List installed models
+ollama list
+
+# Pull additional models
+ollama pull llama3.2        # Larger, smarter (7GB)
+ollama pull codellama       # Code-focused
+ollama pull mistral         # Alternative model
+
+# Quick test
+ollama run llama3.2:3b "How do I list all pods in Kubernetes?"
+
+# Check service status
+systemctl status ollama
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 SYSTEM INFO:
+
+CPU: AMD Ryzen AI 9 HX PRO 375 (24 cores) ✓
+RAM: 62GB ✓
+Storage: 900GB free ✓
+Model: llama3.2:3b (2GB) ✓
+Status: READY TO DEMO! ✓
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎪 DEMO FLOW (5 minutes):
+
+1. Run ./start-demo.sh
+2. Show current K8s context
+3. Pick scenario [1] - Troubleshooting
+4. Pick scenario [2] - Nutanix Storage
+5. Use [7] for custom question
+6. Show `ollama list` in another terminal
+7. "And it's all running on my laptop!"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📖 MORE INFO:
+
+Full docs: cat README.md
+Demo guide: cat DEMO-GUIDE.md
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Ready to impress your colleagues! 🚀

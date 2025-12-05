@@ -1,0 +1,62 @@
+---
+# Ingress for external access to AI workloads
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ollama-ingress
+  namespace: ai-workloads
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: ai.customer.local
+    http:
+      paths:
+      - path: /large
+        pathType: Prefix
+        backend:
+          service:
+            name: ollama-large
+            port:
+              number: 11434
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ollama-ingress
+  namespace: ai-staging
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: ai-staging.customer.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: ollama-medium
+            port:
+              number: 11434
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ollama-ingress
+  namespace: ai-dev
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: ai-dev.customer.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: ollama-small
+            port:
+              number: 11434

@@ -1,0 +1,93 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-dashboards
+  namespace: gpu-monitoring
+data:
+  gpu-dashboard.json: |
+    {
+      "dashboard": {
+        "title": "NVIDIA A30 GPU Utilization",
+        "panels": [
+          {
+            "title": "GPU Utilization per MIG Instance",
+            "targets": [
+              {
+                "expr": "DCGM_FI_DEV_GPU_UTIL"
+              }
+            ]
+          },
+          {
+            "title": "GPU Memory Usage",
+            "targets": [
+              {
+                "expr": "DCGM_FI_DEV_FB_USED / DCGM_FI_DEV_FB_TOTAL * 100"
+              }
+            ]
+          },
+          {
+            "title": "GPU Temperature",
+            "targets": [
+              {
+                "expr": "DCGM_FI_DEV_GPU_TEMP"
+              }
+            ]
+          },
+          {
+            "title": "Power Consumption",
+            "targets": [
+              {
+                "expr": "DCGM_FI_DEV_POWER_USAGE"
+              }
+            ]
+          }
+        ]
+      }
+    }
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-rules
+  namespace: gpu-monitoring
+data:
+  gpu-alerts.yml: |
+    groups:
+    - name: gpu_alerts
+      interval: 30s
+      rules:
+      - alert: HighGPUUtilization
+        expr: DCGM_FI_DEV_GPU_UTIL > 95
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "GPU {{ $labels.gpu }} utilization above 95%"
+          description: "GPU {{ $labels.gpu }} has been above 95% utilization for 5 minutes"
+      
+      - alert: GPUMemoryPressure
+        expr: (DCGM_FI_DEV_FB_USED / DCGM_FI_DEV_FB_TOTAL) > 0.9
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "GPU {{ $labels.gpu }} memory usage above 90%"
+          description: "GPU {{ $labels.gpu }} memory is at {{ $value }}%"
+      
+      - alert: GPUTemperatureHigh
+        expr: DCGM_FI_DEV_GPU_TEMP > 80
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "GPU {{ $labels.gpu }} temperature above 80°C"
+          description: "GPU {{ $labels.gpu }} is running hot at {{ $value }}°C"
+      
+      - alert: GPUPodOOM
+        expr: rate(container_oom_events_total{namespace=~"ai-.*"}[5m]) > 0
+        labels:
+          severity: critical
+        annotations:
+          summary: "GPU pod OOM in namespace {{ $labels.namespace }}"
+          description: "Pod {{ $labels.pod }} has OOM events"

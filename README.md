@@ -1,0 +1,231 @@
+# Nutanix & Kubernetes AI Assistant Demo
+
+## Overview
+Interactive AI assistant for infrastructure teams working with Nutanix clusters and Kubernetes. Perfect for demos and training sessions with colleagues.
+
+## What It Does
+- Answers questions about Nutanix infrastructure management
+- Provides Kubernetes troubleshooting guidance
+- Explains best practices for running K8s on Nutanix
+- Interactive demo scenarios for presentations
+- Shows current K8s cluster context
+
+## Features
+✅ Runs 100% locally (no internet needed for LLM)
+✅ Nutanix-focused knowledge
+✅ Kubernetes expertise
+✅ Pre-built demo scenarios
+✅ Custom query support
+✅ Shows your current K8s context
+
+## Quick Start
+
+### 1. Start the Demo
+```bash
+cd ~/nutanix-k8s-ai-demo
+./nutanix-ai-assistant.py
+```
+
+### 2. Choose a Scenario
+Pick from pre-built scenarios:
+- Kubernetes troubleshooting
+- Nutanix storage best practices
+- Scaling strategies
+- Cluster optimization
+- Disaster recovery
+- Network policies
+- Or ask your own questions
+
+## Demo Scenarios
+
+### 1. Kubernetes Troubleshooting
+Shows how to diagnose CrashLoopBackOff and common pod issues
+
+### 2. Nutanix Storage Best Practices
+Storage class configuration for Kubernetes on Nutanix
+
+### 3. Scaling Strategy
+HPA vs VPA - when to use each autoscaling method
+
+### 4. Nutanix Cluster Optimization
+Key metrics for Kubernetes workloads on Nutanix
+
+### 5. Disaster Recovery
+Backup and restore strategies for K8s on Nutanix
+
+### 6. Network Policies
+Creating secure network policies for pods
+
+## System Requirements
+- AMD/Intel CPU (your Ryzen AI 9 is perfect!)
+- 8GB+ RAM (you have 62GB - excellent!)
+- Ollama installed ✓
+- Python 3 ✓
+- kubectl configured (optional, enhances demo)
+
+## Technical Details
+
+### Model
+- **Engine**: Ollama
+- **Model**: llama3.2:3b (2GB, fast responses)
+- **Deployment**: Local, no external API calls
+- **Context**: Maintains conversation history
+
+### Architecture
+```
+┌─────────────────┐
+│  Demo Script    │ ← Python interactive UI
+└────────┬────────┘
+         │
+┌────────▼────────┐
+│  Ollama API     │ ← Local inference
+└────────┬────────┘
+         │
+┌────────▼────────┐
+│  llama3.2 Model │ ← 3B parameters
+└─────────────────┘
+```
+
+## Tips for Great Demos
+
+### 1. Start with Context
+Show your current K8s cluster when demo starts
+
+### 2. Use Scenarios
+Walk through pre-built scenarios first to show capabilities
+
+### 3. Custom Questions
+Then demonstrate custom question mode for real problems
+
+### 4. Show the Model
+```bash
+ollama list
+```
+Proves it's running locally!
+
+### 5. Compare Responses
+Ask same question twice to show consistency
+
+## Advanced Usage
+
+### Query from Command Line
+```bash
+ollama run llama3.2:3b "How do I troubleshoot a pending pod in Kubernetes?"
+```
+
+### List Available Models
+```bash
+ollama list
+```
+
+### Pull Additional Models
+```bash
+# Larger, more capable model (7GB)
+ollama pull llama3.2
+
+# Code-focused model
+ollama pull codellama
+
+# Specialized for specific tasks
+ollama pull mistral
+```
+
+## Customization
+
+### Add Your Own Scenarios
+Edit `nutanix-ai-assistant.py` and add to the `demo_scenarios()` function:
+
+```python
+"8": {
+    "title": "Your Custom Scenario",
+    "prompt": "Your question here..."
+}
+```
+
+### Change the Model
+Edit the `__init__` method:
+```python
+self.model = "llama3.2"  # or any other model
+```
+
+### Adjust Context History
+Edit the `query_ollama` method:
+```python
+for msg in self.context_history[-6:]:  # Change 6 to keep more/less context
+```
+
+## Presentation Tips
+
+### Opening
+"Let me show you how AI can help us with our Nutanix and Kubernetes infrastructure..."
+
+### Demo Flow
+1. Show it knows your cluster (displays current context)
+2. Pick a troubleshooting scenario
+3. Show how it provides step-by-step guidance
+4. Let colleagues ask their own questions
+5. Emphasize: "This runs locally, no data leaves the building"
+
+### Key Points
+- ✅ Private - runs on your laptop
+- ✅ Fast - responses in seconds
+- ✅ Smart - understands Nutanix + K8s context
+- ✅ Practical - gives actionable advice
+- ✅ Free - no API costs
+
+## Troubleshooting
+
+### Model not found?
+```bash
+ollama pull llama3.2:3b
+```
+
+### Ollama not running?
+```bash
+sudo systemctl status ollama
+sudo systemctl start ollama
+```
+
+### Slow responses?
+Try a smaller model:
+```bash
+ollama pull llama3.2:1b
+```
+
+### Want better quality?
+Try a larger model (needs more RAM):
+```bash
+ollama pull llama3.2  # 7B version
+```
+
+## What Your Colleagues Will Say
+
+> "Wait, this runs locally? No cloud?"
+
+> "Can it actually help with our cluster issues?"
+
+> "How do I get this on my laptop?"
+
+## Next Steps After Demo
+
+### 1. Install on More Machines
+Share the install commands with team members
+
+### 2. Create Team Models
+Fine-tune models with your specific infrastructure docs
+
+### 3. Integrate with Tools
+Connect to your monitoring/alerting systems
+
+### 4. Build Custom Assistants
+Create specialized bots for different teams
+
+## Resources
+- Ollama: https://ollama.com
+- Model Library: https://ollama.com/library
+- Nutanix Docs: https://portal.nutanix.com/
+- Kubernetes Docs: https://kubernetes.io/docs/
+
+---
+
+Built for infrastructure teams who love Nutanix and Kubernetes! 🚀

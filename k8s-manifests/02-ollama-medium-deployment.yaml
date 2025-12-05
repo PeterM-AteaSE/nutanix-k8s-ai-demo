@@ -1,0 +1,107 @@
+---
+# Medium Model (3B-8B) - Staging/Pre-Production Workload
+# Uses MIG 2g.12gb profile - medium A30 partition
+# Perfect for: Staging tests, QA, performance validation
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ollama-medium
+  namespace: ai-staging
+  labels:
+    app: ollama
+    model-size: medium
+    workload: staging
+spec:
+  replicas: 2  # HA deployment
+  selector:
+    matchLabels:
+      app: ollama
+      model-size: medium
+  template:
+    metadata:
+      labels:
+        app: ollama
+        model-size: medium
+        workload: staging
+    spec:
+      containers:
+      - name: ollama
+        image: ollama/ollama:latest
+        ports:
+        - containerPort: 11434
+          name: http
+        env:
+        - name: OLLAMA_HOST
+          value: "0.0.0.0:11434"
+        - name: OLLAMA_MODELS
+          value: "/models"
+        - name: OLLAMA_NUM_PARALLEL
+          value: "2"  # Handle 2 concurrent requests
+        resources:
+          requests:
+            memory: "10Gi"
+            cpu: "4"
+            nvidia.com/mig-2g.12gb: 1  # Request 2g.12gb MIG slice
+          limits:
+            memory: "16Gi"
+            cpu: "8"
+            nvidia.com/mig-2g.12gb: 1
+        volumeMounts:
+        - name: models
+          mountPath: /models
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 11434
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 11434
+          initialDelaySeconds: 10
+          periodSeconds: 5
+      volumes:
+      - name: models
+        persistentVolumeClaim:
+          claimName: ollama-models-medium
+      nodeSelector:
+        nvidia.com/gpu.product: NVIDIA-A30
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchLabels:
+                  app: ollama
+                  model-size: medium
+              topologyKey: kubernetes.io/hostname
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ollama-medium
+  namespace: ai-staging
+spec:
+  selector:
+    app: ollama
+    model-size: medium
+  ports:
+  - port: 11434
+    targetPort: 11434
+    name: http
+  type: ClusterIP
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ollama-models-medium
+  namespace: ai-staging
+spec:
+  accessModes:
+  - ReadWriteMany
+  storageClassName: nutanix-files
+  resources:
+    requests:
+      storage: 25Gi
