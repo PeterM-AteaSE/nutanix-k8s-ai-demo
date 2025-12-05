@@ -13,10 +13,13 @@ Complete demo suite for NVIDIA A30 GPU partitioning and AI workload management o
 
 ## Features
 ✅ **GPU Partitioning Demo**: NVIDIA A30 MIG visualization and benchmarks
-✅ **Interactive Performance Graphs**: Auto-generated HTML charts
+✅ **Interactive Performance Graphs**: Auto-generated HTML charts with Chart.js
+✅ **Concurrent Load Testing**: Simulate multi-tenant workloads with parallel requests
+✅ **GPU Utilization Heatmap**: Visual efficiency comparison showing MIG benefits
+✅ **Throughput Analysis**: Requests/minute metrics for capacity planning
 ✅ **Production K8s Manifests**: Multi-tenant GPU deployments
 ✅ **Runs 100% locally**: No internet needed for LLM inference
-✅ **Multiple Models**: 1B, 3B models included (8B ready)
+✅ **Multiple Models**: 1B, 3B, 8B models with full benchmarking
 ✅ **ROCm GPU Acceleration**: AMD Radeon 890M support
 ✅ **Complete Documentation**: Guides, cheat sheets, and walkthroughs
 
@@ -33,6 +36,17 @@ cd ~/projects/nutanix-k8s-ai-demo
 2. 📊 Quick Benchmark with Graphs - Generate performance charts
 3. 📚 View Documentation - Browse guides in terminal
 4. 🔧 Deploy to Kubernetes - Apply manifests to cluster
+
+**Interactive Menu (11 options):**
+- GPU topology and MIG partitioning visualization
+- Model performance comparison (1B, 3B, 8B)
+- Interactive performance graphs
+- 🆕 **Concurrent load test** - Multi-tenancy simulation with parallel requests
+- 🆕 **GPU utilization heatmap** - Visual efficiency comparison (MIG vs single-tenant)
+- 🆕 **Throughput metrics** - Requests/minute analysis per configuration
+- Kubernetes resource allocation scenarios
+- Deployment walkthrough
+- Monitoring commands and DCGM setup
 
 ### AI Assistant (Legacy)
 ```bash
