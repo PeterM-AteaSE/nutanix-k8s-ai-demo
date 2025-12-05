@@ -39,4 +39,5 @@ fi
 echo ""
 
 # Run the demo
-python3 ~/nutanix-k8s-ai-demo/nutanix-ai-assistant.py
+cd "$(dirname "$0")"
+python3 ./nutanix-ai-assistant.py
