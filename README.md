@@ -1,7 +1,7 @@
 # Nutanix & Kubernetes AI Assistant Demo
 
 ## Overview
-Comprehensive demo suite for NVIDIA A30 GPU partitioning and AI workload management on Nutanix Kubernetes. Includes interactive performance analysis, Kubernetes manifests, and presentation materials.
+Complete demo suite for NVIDIA A30 GPU partitioning and AI workload management on Nutanix Kubernetes. Includes interactive performance analysis, Kubernetes manifests, and presentation materials.
 
 ## What It Does
 - **GPU Partitioning Demo**: Interactive showcase of NVIDIA MIG technology
@@ -71,8 +71,8 @@ Backup and restore strategies for K8s on Nutanix
 Creating secure network policies for pods
 
 ## System Requirements
-- AMD/Intel CPU (your Ryzen AI 9 is perfect!)
-- 8GB+ RAM (you have 62GB - excellent!)
+- AMD/Intel CPU
+- 8GB+ RAM
 - Ollama installed ✓
 - Python 3 ✓
 - kubectl configured (optional, enhances demo)

@@ -9,7 +9,7 @@ cd ~/nutanix-k8s-ai-demo
 ## Demo Script (5-10 minutes)
 
 ### 1. Opening (30 seconds)
-**Say**: "Let me show you something cool - an AI assistant that runs locally and knows Nutanix and Kubernetes"
+**Say**: "This is an AI assistant that runs locally and knows Nutanix and Kubernetes"
 
 **Show**:
 - Open terminal
@@ -24,7 +24,7 @@ cd ~/nutanix-k8s-ai-demo
 - Point out your actual cluster name
 
 ### 3. First Scenario - Troubleshooting (2 minutes)
-**Say**: "Let's try a common problem - CrashLoopBackOff"
+**Say**: "Try a common problem - CrashLoopBackOff"
 
 **Do**:
 - Select option `[1]` Kubernetes Troubleshooting
@@ -130,7 +130,7 @@ ollama pull llama3.2:70b  # 40GB, very smart (needs GPU)
 **Say**: "This is the 3B model for speed. We can use bigger models for better responses."
 
 ### If Response is Generic
-**Say**: "Let me ask it something more specific..." (use custom query)
+**Say**: "Ask something more specific..." (use custom query)
 
 ### If Ollama Not Running
 ```bash

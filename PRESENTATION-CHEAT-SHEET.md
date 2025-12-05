@@ -257,7 +257,7 @@ Result: 2-3x more workloads, no new hardware
 - Use **Nutanix Files** for model storage (RWX PVCs)
 - Use **Nutanix Volumes** for high-IOPS workloads
 - Integrate with **Prism** for GPU node monitoring
-- Leverage **Flow** for micro-segmentation
+- Use **Flow** for micro-segmentation
 
 ---
 
@@ -320,10 +320,10 @@ kubectl top pods -n ai-workloads
 "With MIG partitioning on your 2x A30 GPUs, you can run 6-8 isolated AI workloads, improve utilization from 30% to 80%+, and reduce per-workload costs by 60-70%."
 
 **Call to Action**: 
-"Let's schedule a POC to enable MIG on one of your nodes and see the utilization improvement firsthand."
+"Schedule a POC to enable MIG on one of your nodes and measure the utilization improvement."
 
 **Leave Behind**: 
-"I'll send you the full deployment manifests, monitoring setup, and this guide. Everything is production-ready."
+"Full deployment manifests, monitoring setup, and this guide are available in the repo. Everything is production-ready."
 
 ---
 
