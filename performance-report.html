@@ -93,7 +93,7 @@
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-label">Models Tested</div>
-                <div class="stat-value">2</div>
+                <div class="stat-value">3</div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">Fastest Model</div>
@@ -101,11 +101,11 @@
             </div>
             <div class="stat-card">
                 <div class="stat-label">Max Throughput</div>
-                <div class="stat-value">26 <span style="font-size:0.5em">tok/s</span></div>
+                <div class="stat-value">31 <span style="font-size:0.5em">tok/s</span></div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">Benchmark Time</div>
-                <div class="stat-value">15:35</div>
+                <div class="stat-value">15:43</div>
             </div>
         </div>
         
@@ -127,7 +127,7 @@
         </div>
         
         <div class="footer">
-            <p><strong>Generated:</strong> 2025-12-05 15:35:57</p>
+            <p><strong>Generated:</strong> 2025-12-05 15:43:22</p>
             <p>Demo Repository: github.com/PeterM-AteaSE/nutanix-k8s-ai-demo</p>
         </div>
     </div>
@@ -142,11 +142,11 @@
         new Chart(throughputCtx, {
             type: 'bar',
             data: {
-                labels: ["llama3.2:1b\n(1B parameters)", "llama3.2:3b\n(3B parameters)"],
+                labels: ["llama3.2:1b\n(1B parameters)", "llama3.2:3b\n(3B parameters)", "llama3.1:8b\n(8B parameters)"],
                 datasets: [{
                     label: 'Tokens per Second',
-                    data: [25.73187646739949, 18.121601021955843],
-                    backgroundColor: ["#10b981", "#f59e0b"],
+                    data: [31.378190853429274, 19.234208058279993, 8.162718817662634],
+                    backgroundColor: ["#10b981", "#f59e0b", "#ef4444"],
                     borderRadius: 8,
                     borderWidth: 0
                 }]
@@ -181,11 +181,11 @@
         new Chart(durationCtx, {
             type: 'bar',
             data: {
-                labels: ["llama3.2:1b\n(1B parameters)", "llama3.2:3b\n(3B parameters)"],
+                labels: ["llama3.2:1b\n(1B parameters)", "llama3.2:3b\n(3B parameters)", "llama3.1:8b\n(8B parameters)"],
                 datasets: [{
                     label: 'Response Time',
-                    data: [21.141093254089355, 25.99108099937439],
-                    backgroundColor: ["#10b981", "#f59e0b"],
+                    data: [18.006136894226074, 26.25530505180359, 56.96631360054016],
+                    backgroundColor: ["#10b981", "#f59e0b", "#ef4444"],
                     borderRadius: 8,
                     borderWidth: 0
                 }]
@@ -217,7 +217,7 @@
         
         // Memory vs Performance Scatter
         const memoryCtx = document.getElementById('memoryChart').getContext('2d');
-        const memoryValues = [6, 12];
+        const memoryValues = [6, 12, 24];
         new Chart(memoryCtx, {
             type: 'scatter',
             data: {
@@ -225,10 +225,10 @@
                     label: 'Model Performance',
                     data: memoryValues.map((mem, i) => ({
                         x: mem,
-                        y: [25.73187646739949, 18.121601021955843][i]
+                        y: [31.378190853429274, 19.234208058279993, 8.162718817662634][i]
                     })),
-                    backgroundColor: ["#10b981", "#f59e0b"],
-                    borderColor: ["#10b981", "#f59e0b"],
+                    backgroundColor: ["#10b981", "#f59e0b", "#ef4444"],
+                    borderColor: ["#10b981", "#f59e0b", "#ef4444"],
                     pointRadius: 12,
                     pointHoverRadius: 15
                 }]
@@ -243,7 +243,7 @@
                             label: function(context) {
                                 const idx = context.dataIndex;
                                 return [
-                                    'Model: ' + ["llama3.2:1b\n(1B parameters)", "llama3.2:3b\n(3B parameters)"][idx],
+                                    'Model: ' + ["llama3.2:1b\n(1B parameters)", "llama3.2:3b\n(3B parameters)", "llama3.1:8b\n(8B parameters)"][idx],
                                     'Memory: ' + context.parsed.x + 'GB',
                                     'Speed: ' + context.parsed.y.toFixed(1) + ' tok/s'
                                 ];
