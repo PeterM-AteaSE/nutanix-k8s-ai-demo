@@ -13,14 +13,14 @@ if ! systemctl is-active --quiet ollama; then
     sleep 2
 fi
 
-# Check if model is available
-if ! ollama list | grep -q "llama3.2:3b"; then
-    echo "📥 Model not found, downloading llama3.2:3b (this may take a minute)..."
-    ollama pull llama3.2:3b
+# Check if model is available (using faster 1B model for interactive responses)
+if ! ollama list | grep -q "llama3.2:1b"; then
+    echo "📥 Model not found, downloading llama3.2:1b (this may take a minute)..."
+    ollama pull llama3.2:1b
 fi
 
 echo "✓ Ollama is ready"
-echo "✓ Model loaded: llama3.2:3b"
+echo "✓ Model loaded: llama3.2:1b (fast interactive mode)"
 echo ""
 
 # Show system info

@@ -12,7 +12,7 @@ from datetime import datetime
 
 class NutanixK8sAssistant:
     def __init__(self):
-        self.model = "llama3.2:3b"
+        self.model = "llama3.2:1b"  # Faster model for interactive responses
         self.context_history = []
         
     def query_ollama(self, prompt, system_prompt=None):
